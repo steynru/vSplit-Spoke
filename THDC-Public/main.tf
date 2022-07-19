@@ -1,7 +1,7 @@
-variable "azure_sub_id_vscode_local" {
-  type = string
-  default = ""
-}
+#variable "azure_sub_id_vscode_local" {
+#  type = string
+#  default = ""
+#}
 
 variable "client_access_secret_id" {
   type = string
@@ -18,15 +18,15 @@ variable "azure_directory_id" {
   default = ""
 }
 
-variable "long_name" {
-  type = string
-  default = ""
-}
+#variable "long_name" {
+#  type = string
+#  default = ""
+#}
 
-variable "short_name" {
-  type = string
-  default = ""
-}
+#variable "short_name" {
+#  type = string
+#  default = ""
+#}
 
 variable "resource_location" {
   type = string
