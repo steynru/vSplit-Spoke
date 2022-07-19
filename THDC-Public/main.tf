@@ -28,10 +28,10 @@ variable "azure_directory_id" {
 #  default = ""
 #}
 
-variable "resource_location" {
-  type = string
-  default = ""
-}
+#variable "resource_location" {
+#  type = string
+#  default = ""
+#}
 
 
 ########### Management 1  ###########
