@@ -1,4 +1,4 @@
-data "tfe_outputs" "Hub-Infra-VNET" {
+data "tfe_outputs" "Hub" {
   organization = "vSplit"
   workspace = "vSplit-Hub-Switzerland-North"
 }
