@@ -21,3 +21,7 @@ output "App-Subnet" {
 output "Web-Subnet" {
   value = azurerm_subnet.Web-Subnet
 }
+
+output "AKS01-Subnet" {
+  value = azurerm_subnet.AKS01-Subnet
+}
