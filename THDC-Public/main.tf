@@ -58,5 +58,5 @@ resource "azurerm_virtual_network_peering" "example-1" {
   name                      = "HubToSpoke"
   resource_group_name  = azurerm_resource_group.Spoke-Infra-RG.name
   virtual_network_name      = azurerm_virtual_network.Spoke-Infra-VNET.name
-  remote_virtual_network_id = "${data.tfe_outputs.Hub.Hub-Infra-VNET.id}"
+  remote_virtual_network_id = "/subscriptions/a008b1c5-30b6-4611-b9da-d01e0e529f51/resourceGroups/VSneuHub-INFRA-RG/providers/Microsoft.Network/virtualNetworks/VSneuHub-VNET"
 }
