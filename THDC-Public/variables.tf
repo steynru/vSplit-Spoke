@@ -19,26 +19,26 @@ variable "long_name" {
 }
 
 variable "vnet_ip_range" {
-  type = string
+  #type = string
   default = ["10.10.0.0/22"]
 }
 
 variable "infra-subnet" {
-  type = string
+  #type = string
   default = ["10.10.0.0/25"]
 }
 
 variable "app-subnet" {
-  type = string
+  #type = string
   default = ["10.10.1.64/25"]
 }
 
 variable "db-subnet" {
-  type = string
+  #type = string
   default = ["10.10.1.0/26"]
 }
 
 variable "web-subnet" {
-  type = string
+  #type = string
   default = ["10.10.1.192/26"]
 }
