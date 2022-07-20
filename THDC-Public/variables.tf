@@ -10,5 +10,10 @@ variable "short_name" {
 
 variable "resource_location" {
   type = string
-  default = "The Home Datacenter Company"
+  default = "northeurope"
+}
+
+variable "long_name" {
+  type = string
+  default = "The Home Dataceter Company"
 }
