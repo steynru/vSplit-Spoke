@@ -113,5 +113,5 @@ output "client_certificate" {
 output "kube_config" {
   value = azurerm_kubernetes_cluster.AKS01.kube_config_raw
 
-  #sensitive = true
+  sensitive = true
 }
