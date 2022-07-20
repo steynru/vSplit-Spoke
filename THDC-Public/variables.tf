@@ -30,12 +30,12 @@ variable "infra-subnet" {
 
 variable "app-subnet" {
   #type = string
-  default = ["10.10.1.64/25"]
+  default = ["10.10.1.0/25"]
 }
 
 variable "db-subnet" {
   #type = string
-  default = ["10.10.1.0/26"]
+  default = ["10.10.1.128/26"]
 }
 
 variable "web-subnet" {
