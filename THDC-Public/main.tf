@@ -25,8 +25,8 @@ resource "azurerm_resource_group" "Spoke-App-RG" {
   location = var.resource_location
 }
 
-resource "azurerm_resource_group" "Spoke-AKS02-RG" {
-  name     = "${var.short_name}-AKS-RG"
+resource "azurerm_resource_group" "Spoke-AKS01-RG" {
+  name     = "${var.short_name}-AKS01-RG"
   location = var.resource_location
 }
 
@@ -80,3 +80,38 @@ resource "azurerm_subnet" "AKS01-Subnet" {
 #  remote_virtual_network_id = data.tfe_outputs.Hub.Hub-Infra-VNET.id
 #  "/subscriptions/a008b1c5-30b6-4611-b9da-d01e0e529f51/resourceGroups/VSneuHub-INFRA-RG/providers/Microsoft.Network/virtualNetworks/VSneuHub-VNET"
 #}
+
+
+#AKS Cluster
+
+resource "azurerm_kubernetes_cluster" "AKS01" {
+  name                = "${var.short_name}-AKS01"
+  location            = azurerm_resource_group.Spoke-AKS01-RG.location
+  resource_group_name = azurerm_resource_group.Spoke-AKS01-RG.name
+  dns_prefix          = "thdcaks01"
+
+  default_node_pool {
+    name       = "default"
+    node_count = 2
+    vm_size    = "Standard_B2s"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  tags = {
+    Environment = "Dev/Test"
+  }
+}
+
+output "client_certificate" {
+  value     = azurerm_kubernetes_cluster.AKS01.kube_config.0.client_certificate
+  sensitive = true
+}
+
+output "kube_config" {
+  value = azurerm_kubernetes_cluster.AKS01.kube_config_raw
+
+  sensitive = true
+}
