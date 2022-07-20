@@ -1,5 +1,5 @@
-output "Spoke-APP-RG" {
-  value = azurerm_resource_group.Spoke-APP-RG.name
+output "Spoke-App-RG" {
+  value = azurerm_resource_group.Spoke-App-RG.name
 }
 
 output "Spoke-Infra-VNET" {
