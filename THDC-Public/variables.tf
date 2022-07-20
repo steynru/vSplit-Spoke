@@ -42,3 +42,8 @@ variable "web-subnet" {
   #type = string
   default = ["10.10.1.192/26"]
 }
+
+variable "aks01-subnet" {
+  #type = string
+  default = ["10.10.2.0/24"]
+}

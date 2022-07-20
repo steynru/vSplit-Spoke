@@ -25,6 +25,11 @@ resource "azurerm_resource_group" "Spoke-App-RG" {
   location = var.resource_location
 }
 
+resource "azurerm_resource_group" "Spoke-AKS02-RG" {
+  name     = "${var.short_name}-AKS-RG"
+  location = var.resource_location
+}
+
 resource "azurerm_virtual_network" "Spoke-Infra-VNET" {
   name                = "${var.short_name}-Spoke-VNET"
   location            = azurerm_resource_group.Spoke-Infra-RG.location
@@ -59,6 +64,14 @@ resource "azurerm_subnet" "Web-Subnet" {
   resource_group_name  = azurerm_resource_group.Spoke-Infra-RG.name
   address_prefixes     = var.web-subnet
 }
+
+resource "azurerm_subnet" "AKS02-Subnet" {
+  name                 = "${var.short_name}-aks01"
+  virtual_network_name = azurerm_virtual_network.Spoke-Infra-VNET.name
+  resource_group_name  = azurerm_resource_group.Spoke-Infra-RG.name
+  address_prefixes     = var.aks01-subnet
+}
+
 
 #resource "azurerm_virtual_network_peering" "example-1" {
 #  name                      = "SpokeToHub"
